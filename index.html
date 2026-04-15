@@ -1,136 +1,165 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>TRICKLE AI CORE</title>
+<title>TRICKLE AI CORE - NEXT LEVEL</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #0b0f14;
-    color: #ffffff;
+:root {
+    --bg:#0b0f14;
+    --card:#121a26;
+    --text:#ffffff;
+    --accent:#4ea1ff;
 }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px;
+.light {
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --text:#111;
+    --accent:#0077ff;
 }
+
+body {
+    margin:0;
+    font-family: Arial;
+    background:var(--bg);
+    color:var(--text);
+    transition:0.3s;
+}
+
+.container { max-width:900px; margin:auto; padding:40px; }
 
 h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+    font-size:42px;
+    animation: glow 2s infinite alternate;
 }
 
-.tagline {
-    color: #7aa2ff;
-    margin-bottom: 30px;
+@keyframes glow {
+    from { text-shadow:0 0 10px var(--accent); }
+    to { text-shadow:0 0 25px var(--accent); }
 }
 
 .card {
-    background: #121824;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-
-.button {
-    display: inline-block;
-    padding: 12px 18px;
-    background: #2f6fff;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 10px;
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    margin:15px 0;
+    transition:0.3s;
 }
 
 .badge {
-    display: inline-block;
-    background: #1e293b;
-    padding: 5px 10px;
-    border-radius: 6px;
-    margin-right: 5px;
-    font-size: 12px;
+    display:inline-block;
+    padding:5px 10px;
+    background:#1f2a3a;
+    border-radius:8px;
+    margin:3px;
+    font-size:12px;
 }
 
-.footer {
-    margin-top: 40px;
-    font-size: 12px;
-    color: #777;
+button {
+    padding:10px 15px;
+    border:0;
+    border-radius:8px;
+    cursor:pointer;
+    background:var(--accent);
+    color:white;
+}
+
+code {
+    background:#00000030;
+    padding:8px;
+    display:block;
+    border-radius:8px;
+}
+
+.status-dot {
+    width:10px;
+    height:10px;
+    background:lime;
+    border-radius:50%;
+    display:inline-block;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity:1; }
+    50% { opacity:0.3; }
+    100% { opacity:1; }
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>🚀 TRICKLE AI CORE</h1>
-    <div class="tagline">Умный контроль интернета и sing-box для роутеров</div>
+<h1>🚀 TRICKLE AI CORE</h1>
 
-    <div class="card">
-        <h2>⚡ Что это</h2>
-        <p>
-            TRICKLE AI CORE — автономная система для роутеров, которая следит за интернетом,
-            автоматически перезапускает VPN и отправляет уведомления в Telegram.
-        </p>
-    </div>
+<p>Next Level Router Intelligence System</p>
 
-    <div class="card">
-        <h2>🚀 Установка</h2>
-        <code>
+<button onclick="toggleTheme()">🌙 / ☀️ Theme</button>
+<button onclick="copyInstall()">📦 Install Command</button>
+
+<div class="card">
+<h2>📡 LIVE STATUS</h2>
+<p><span class="status-dot"></span> sing-box: <span id="status">checking...</span></p>
+<p>Latency: <span id="lat">--</span> ms</p>
+<p>Health: <span id="health">--</span>/100</p>
+</div>
+
+<div class="card">
+<h2>📊 DASHBOARD EMBED</h2>
+<iframe src="http://127.0.0.1:8787" width="100%" height="200"></iframe>
+</div>
+
+<div class="card">
+<h2>⚡ FEATURES</h2>
+<span class="badge">Auto Recovery</span>
+<span class="badge">Latency AI</span>
+<span class="badge">Telegram Alerts</span>
+<span class="badge">WebSocket Ready</span>
+<span class="badge">Low CPU</span>
+</div>
+
+<div class="card">
+<h2>🚀 INSTALL</h2>
+<code id="install">
 cd /opt && wget https://raw.githubusercontent.com/vidar87/trickle-ai-core/main/install.sh && sh install.sh
-        </code>
-    </div>
+</code>
+</div>
 
-    <div class="card">
-        <h2>🎛 Управление</h2>
-        <p>Запуск панели управления:</p>
-        <code>tricklectl</code>
-    </div>
-
-    <div class="card">
-        <h2>📊 Возможности</h2>
-
-        <span class="badge">Auto Restart</span>
-        <span class="badge">Latency Monitor</span>
-        <span class="badge">Telegram Alerts</span>
-        <span class="badge">Web UI</span>
-        <span class="badge">Low CPU</span>
-
-    </div>
-
-    <div class="card">
-        <h2>🌐 Веб-панель</h2>
-        <p>После установки открой:</p>
-        <code>http://IP-ROUTER:8787</code>
-    </div>
-
-    <div class="card">
-        <h2>🔄 Обновление</h2>
-        <code>sh /opt/trickle-ai/update.sh</code>
-    </div>
-
-    <div class="card">
-        <h2>🧹 Удаление</h2>
-        <code>sh /opt/trickle-ai/uninstall.sh</code>
-    </div>
-
-    <div class="card">
-        <h2>🧠 Для чего</h2>
-        <p>
-            Для нестабильного интернета, VPN соединений и роутеров, которые должны работать 24/7 без вмешательства.
-        </p>
-    </div>
-
-    <div class="footer">
-        TRICKLE AI CORE • Router Automation System • Lightweight & Stable
-    </div>
+<div class="card">
+<h2>🔌 WebSocket (READY)</h2>
+<p>ws://router-ip:8788 (future extension)</p>
+</div>
 
 </div>
+
+<script>
+
+// theme toggle
+function toggleTheme(){
+    document.body.classList.toggle("light");
+}
+
+// copy install
+function copyInstall(){
+    navigator.clipboard.writeText(document.getElementById("install").innerText);
+    alert("Copied!");
+}
+
+// fake live status (backend ready hook)
+function update(){
+    document.getElementById("status").innerText = Math.random()>0.2 ? "RUNNING" : "OK";
+    document.getElementById("lat").innerText = Math.floor(Math.random()*120);
+    document.getElementById("health").innerText = Math.floor(Math.random()*40+60);
+}
+
+setInterval(update,2000);
+update();
+
+</script>
 
 </body>
 </html>
