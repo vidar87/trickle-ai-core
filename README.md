@@ -1,10 +1,25 @@
 # 🚀 TRICKLE AI CORE
 
-Autonomous network watchdog + AI-style routing controller for routers
+Умная система автоматического контроля интернета и перезапуска sing-box для роутеров
 
 ---
 
-## ⚙️ INSTALL (ONE COMMAND)
+## 📌 ЧТО ЭТО ТАКОЕ
+
+TRICKLE AI CORE — это лёгкая система для роутера, которая:
+
+✔ следит за работой sing-box  
+✔ проверяет качество интернета (пинг)  
+✔ автоматически перезапускает сервис при сбоях  
+✔ отправляет уведомления в Telegram  
+✔ показывает состояние системы в реальном времени  
+✔ работает в режиме авто или ручного управления  
+
+---
+
+## ⚙️ УСТАНОВКА (ОДНА КОМАНДА)
+
+Просто вставьте в терминал роутера:
 
 ```sh
 cd /opt && wget https://raw.githubusercontent.com/vidar87/trickle-ai-core/main/install.sh && sh install.sh
@@ -12,7 +27,9 @@ cd /opt && wget https://raw.githubusercontent.com/vidar87/trickle-ai-core/main/i
 
 ---
 
-## 🎛 CONTROL PANEL
+## 🎛 УПРАВЛЕНИЕ
+
+Открыть панель управления:
 
 ```sh
 tricklectl
@@ -20,44 +37,59 @@ tricklectl
 
 ---
 
-## 🌐 WEB PANEL
+## 📊 ЧТО ПОКАЗЫВАЕТ СИСТЕМА
+
+Система отслеживает:
+
+- состояние sing-box (работает / не работает)
+- качество интернета (пинг в миллисекундах)
+- общий уровень стабильности (0–100)
+- статус системы (RUNNING / STOPPED)
+
+---
+
+## 🤖 РЕЖИМЫ РАБОТЫ
+
+### AUTO (автоматический режим)
+- система сама решает, когда перезапускать сервис
+- автоматически реагирует на проблемы
+
+### MANUAL (ручной режим)
+- управление остаётся за пользователем
+- система только наблюдает
+
+---
+
+## 🔔 TELEGRAM УВЕДОМЛЕНИЯ
+
+Можно подключить Telegram:
+
+- уведомления о падении интернета
+- предупреждения о плохом пинге
+- сообщения о перезапуске системы
+
+Настройка через меню:
+```
+tricklectl → 2
+```
+
+---
+
+## 🌐 ВЕБ-ПАНЕЛЬ
+
+Открыть в браузере:
 
 ```
-http://<router-ip>:8787
+http://IP-РОУТЕРА:8787
 ```
 
----
-
-## 📊 STATUS
-
-- LAT = latency ms
-- SCORE = network health (0–100)
-- STATE = RUNNING / STOPPED
+Показывает текущее состояние системы.
 
 ---
 
-## 🤖 MODES
+## 🔄 ОБНОВЛЕНИЕ
 
-- AUTO → system decides recovery
-- MANUAL → user control
-
----
-
-## 🔔 TELEGRAM ALERTS
-
-Configured via control panel
-
----
-
-## 🧹 REMOVE (ONE COMMAND)
-
-```sh
-sh /opt/trickle-ai/uninstall.sh
-```
-
----
-
-## 🔄 UPDATE (ONE COMMAND)
+Обновить систему:
 
 ```sh
 sh /opt/trickle-ai/update.sh
@@ -65,17 +97,49 @@ sh /opt/trickle-ai/update.sh
 
 ---
 
-## ⚡ FEATURES
+## 🧹 ПОЛНОЕ УДАЛЕНИЕ
 
-✔ AI-style health scoring  
-✔ latency monitoring  
-✔ auto recovery FSM  
-✔ manual override mode  
-✔ web dashboard  
-✔ Telegram alerts  
+Полностью удалить систему:
+
+```sh
+sh /opt/trickle-ai/uninstall.sh
+```
 
 ---
 
-## ⚠️ DESIGN GOAL
+## ⚡ ОСНОВНЫЕ ВОЗМОЖНОСТИ
 
-Ultra-light router AI system (BusyBox compatible)
+✔ автоматический перезапуск при сбоях  
+✔ контроль качества интернета  
+✔ Telegram уведомления  
+✔ веб-интерфейс  
+✔ режим AUTO / MANUAL  
+✔ минимальная нагрузка на роутер  
+
+---
+
+## 🧠 ДЛЯ ЧЕГО ЭТО
+
+Подходит если у вас:
+
+- нестабильный интернет  
+- VPN / sing-box периодически падает  
+- нужен автоматический контроль без участия  
+- роутер работает 24/7  
+
+---
+
+## ⚠️ ВАЖНО
+
+Система разработана для:
+
+- роутеров с Entware  
+- BusyBox окружения  
+- устройств с ограниченной памятью  
+
+---
+
+## 🚀 ИТОГ
+
+TRICKLE AI CORE =  
+«поставил и забыл» система контроля интернета
